@@ -1,3 +1,4 @@
+require('dotenv').config();
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -35,8 +36,12 @@ module.exports = {
 
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/index.html',
+      template: './src/index.ejs',
       filename: './index.html',
+      templateParameters: {
+        scriptSrc: process.env.BUNDLE_PATH,
+      },
+      inject: false,
     }),
   ],
 };
