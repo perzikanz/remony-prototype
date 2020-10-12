@@ -82,12 +82,16 @@ export default function Keyboad() {
     whiteX = whiteX + 80;
   }
 
-  const svgWidth = whiteX;
-  const svgHeight = whiteHeight;
+  const svgWidth = whiteX + 2;
+  const svgHeight = whiteHeight + 2;
 
   return (
     <div className="keyboad">
-      <svg width={svgWidth} height={svgHeight}>
+      <svg
+        width={svgWidth}
+        height={svgHeight}
+        viewBox={`-1 -1 ${svgWidth} ${svgHeight}`}
+      >
         {whiteKeys}
         {blackKeys}
         {keyTexts}
