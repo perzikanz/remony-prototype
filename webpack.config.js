@@ -44,4 +44,8 @@ module.exports = {
       inject: false,
     }),
   ],
+
+  devServer: {
+    historyApiFallback: true,
+  },
 };
