@@ -1,7 +1,12 @@
 import React from 'react';
 
-import { pianoSvg } from '../piano/piano';
+import Keyboad from '../piano/Keyboad';
 
 export default function Free() {
-  return <>{pianoSvg}</>;
+  return (
+    <>
+      <h2>Fee Play♪</h2>
+      <Keyboad />
+    </>
+  );
 }
