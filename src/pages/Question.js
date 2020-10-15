@@ -19,12 +19,12 @@ export default function Question() {
       <ul className="naviList">
         <li>
           <NavLink to={`${match.url}/absolute`} className="naviItem">
-            絶対音感
+            絶対音感(absolute)
           </NavLink>
         </li>
         <li>
           <NavLink to={`${match.url}/relative`} className="naviItem">
-            相対音感
+            相対音感(relative)
           </NavLink>
         </li>
       </ul>
