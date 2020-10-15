@@ -2,19 +2,26 @@ import React from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
 
 import { routes } from './routes';
+import './pages/navigation.css';
 
 export default () => {
   return (
     <>
-      <ul>
+      <ul className="naviList">
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/" className="naviItem">
+            Home
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/question">Question</NavLink>
+          <NavLink to="/question" className="naviItem">
+            Question
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/free">Free</NavLink>
+          <NavLink to="/free" className="naviItem">
+            Free
+          </NavLink>
         </li>
       </ul>
       <Switch>
