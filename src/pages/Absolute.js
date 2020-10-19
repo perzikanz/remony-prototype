@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Keyboad } from '../piano/Keyboad';
 import './absolute.css';
 
 export default function Absolute() {
@@ -14,6 +15,7 @@ export default function Absolute() {
       >
         もんだい
       </button>
+      <Keyboad />
     </div>
   );
 }
