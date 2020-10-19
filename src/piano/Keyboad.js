@@ -6,16 +6,13 @@ import './Keyboad.css';
 黒鍵：50*225, 5こ, (40,100,35,35,50)
 */
 
-export default function Keyboad() {
-  const keyboadLength = 7;
-
+export function FreeKeyboad() {
   let whiteKeys = [];
   let whiteX = 0;
-  const whiteY = 0;
   const whiteWidth = 80;
   const whiteHeight = 405;
   const whiteKeyLevel = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
-  for (let i = 0; i < keyboadLength; i++) {
+  for (let i = 0; i < 7; i++) {
     let octave = i;
     for (let i = 0; i < 7; i++) {
       const src = `./src/audio/${whiteKeyLevel[i]}${octave}.mp3`;
@@ -24,7 +21,7 @@ export default function Keyboad() {
       const whiteKey = (
         <rect
           x={whiteX}
-          y={whiteY}
+          y={0}
           width={whiteWidth}
           height={whiteHeight}
           className="white"
@@ -37,15 +34,29 @@ export default function Keyboad() {
       whiteX = whiteX + 80;
     }
   }
+  const src = `./src/audio/c7.mp3`;
+  const audio = new Audio(src);
+  whiteKeys.push(
+    <rect
+      x={whiteX}
+      y={0}
+      width={whiteWidth}
+      height={whiteHeight}
+      className="white"
+      onMouseDown={() => {
+        PlayPiano(audio);
+      }}
+    />
+  );
+  whiteX = whiteX + 80;
 
   let blackKeys = [];
   let blackX = 0;
-  const blackY = 0;
   const blackWidth = 50;
   const blackHeight = 225;
   const spase = [40, 100, 35, 35, 50];
   const blackKeyLevel = ['c', 'd', 'f', 'g', 'a'];
-  for (let i = 0; i < keyboadLength; i++) {
+  for (let i = 0; i < 7; i++) {
     let octave = i;
     blackX = blackX + 50;
     for (let i = 0; i < 5; i++) {
@@ -55,7 +66,7 @@ export default function Keyboad() {
       const blackKey = (
         <rect
           x={blackX}
-          y={blackY}
+          y={0}
           width={blackWidth}
           height={blackHeight}
           className="black"
@@ -72,7 +83,7 @@ export default function Keyboad() {
   let keyTexts = [];
   let textX = 20;
   const textY = 380;
-  for (let i = 0; i < keyboadLength; i++) {
+  for (let i = 0; i < 7; i++) {
     const keyText = (
       <text x={textX} y={textY} className="text">
         C{i}
@@ -82,29 +93,11 @@ export default function Keyboad() {
     textX = textX + 560;
   }
 
-  if (keyboadLength === 7) {
-    const src = `./src/audio/c7.mp3`;
-    const audio = new Audio(src);
-    whiteKeys.push(
-      <rect
-        x={whiteX}
-        y={whiteY}
-        width={whiteWidth}
-        height={whiteHeight}
-        className="white"
-        onMouseDown={() => {
-          PlayPiano(audio);
-        }}
-      />
-    );
-    whiteX = whiteX + 80;
-
-    keyTexts.push(
-      <text x={textX} y={textY} className="text">
-        C{7}
-      </text>
-    );
-  }
+  keyTexts.push(
+    <text x={textX} y={textY} className="text">
+      C{7}
+    </text>
+  );
 
   const svgWidth = whiteX + 2;
   const svgHeight = whiteHeight + 2;
