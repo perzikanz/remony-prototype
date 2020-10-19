@@ -86,23 +86,24 @@ export default function Keyboad() {
     const src = `./src/audio/c7.mp3`;
     const audio = new Audio(src);
     whiteKeys.push(
-      <>
-        <rect
-          x={whiteX}
-          y={whiteY}
-          width={whiteWidth}
-          height={whiteHeight}
-          className="white"
-          onMouseDown={() => {
-            PlayPiano(audio);
-          }}
-        />
-        <text x={textX} y={textY} className="text">
-          C{7}
-        </text>
-      </>
+      <rect
+        x={whiteX}
+        y={whiteY}
+        width={whiteWidth}
+        height={whiteHeight}
+        className="white"
+        onMouseDown={() => {
+          PlayPiano(audio);
+        }}
+      />
     );
     whiteX = whiteX + 80;
+
+    keyTexts.push(
+      <text x={textX} y={textY} className="text">
+        C{7}
+      </text>
+    );
   }
 
   const svgWidth = whiteX + 2;
