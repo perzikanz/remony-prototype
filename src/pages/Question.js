@@ -9,17 +9,23 @@ import {
 import Absolute from './Absolute';
 import Relative from './Relative';
 
+import './navigation.css';
+
 export default function Question() {
   let match = useRouteMatch();
   return (
     <div>
       <h2>Question</h2>
-      <ul>
+      <ul className="naviList">
         <li>
-          <NavLink to={`${match.url}/absolute`}>絶対音感</NavLink>
+          <NavLink to={`${match.url}/absolute`} className="naviItem">
+            絶対音感(absolute)
+          </NavLink>
         </li>
         <li>
-          <NavLink to={`${match.url}/relative`}>相対音感</NavLink>
+          <NavLink to={`${match.url}/relative`} className="naviItem">
+            相対音感(relative)
+          </NavLink>
         </li>
       </ul>
       <Switch>

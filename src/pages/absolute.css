@@ -1,0 +1,12 @@
+.button {
+  height: 50px;
+  background: pink;
+  font-size: 15px;
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid coral;
+}
+
+.button:hover {
+  background: #ffefeb;
+}
