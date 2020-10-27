@@ -31,6 +31,7 @@ export function Keyboad() {
         height={WHITE_KEY_HEIGHT}
         className="white"
         id={`${WHITE_KEY_LEVEL[i]}3`}
+        key={`${WHITE_KEY_LEVEL[i]}3`}
       />
     );
     whiteKeys.push(whiteKey);
@@ -49,6 +50,7 @@ export function Keyboad() {
         height={BLACK_KEY_HEIGHT}
         className="black"
         id={`${BLACK_KEY_LEVEL[i]}3`}
+        key={`${BLACK_KEY_LEVEL[i]}3`}
       />
     );
     blackKeys.push(blackKey);
@@ -89,6 +91,7 @@ export function FreeKeyboad() {
           onMouseDown={() => {
             PlayPiano(audio);
           }}
+          key={`${WHITE_KEY_LEVEL[i]}${octave}`}
         />
       );
       whiteKeys.push(whiteKey);
@@ -107,6 +110,7 @@ export function FreeKeyboad() {
       onMouseDown={() => {
         PlayPiano(audio);
       }}
+      key="c7"
     />
   );
   whiteX = whiteX + 80;
@@ -129,6 +133,7 @@ export function FreeKeyboad() {
           onMouseDown={() => {
             PlayPiano(audio);
           }}
+          key={`${BLACK_KEY_LEVEL[i]}${octave}`}
         />
       );
       blackKeys.push(blackKey);
@@ -141,7 +146,7 @@ export function FreeKeyboad() {
   const TEXT_Y = 380;
   for (let i = 0; i <= OCTAVE_NUM; i++) {
     const keyText = (
-      <text x={textX} y={TEXT_Y} className="text">
+      <text x={textX} y={TEXT_Y} className="text" key={`C${i}`}>
         C{i}
       </text>
     );
