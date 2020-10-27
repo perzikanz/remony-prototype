@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { FreeKeyboad } from '../piano/Keyboad';
+import { FreeKeyboad } from '../../piano/Keyboad';
+import './free.css';
 
-export default function Free() {
+export function Free() {
   return (
     <>
       <h2>Fee Play♪</h2>

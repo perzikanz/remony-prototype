@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default function Chord() {
+import './chord.css';
+
+export function Chord() {
   return (
     <div>
       <h2>Chord</h2>
