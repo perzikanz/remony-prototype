@@ -11,3 +11,9 @@
 .button:hover {
   background: #ffefeb;
 }
+
+.texts {
+  display: inline-block;
+  margin: 10px;
+  width: 200px;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { correctAnswer } from '../../redux/action';
+import { askQuestions, correctAnswer, wrongAnswer } from '../../redux/action';
 import { Keyboad } from '../../piano/Keyboad';
 import './absolute.css';
 
@@ -22,36 +22,31 @@ const keyLevels = [
 export class Absolute extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      correct: '0',
-      judg: 'aaa',
-      isPlayed: false,
-    };
-
+    this.randomPlay = this.randomPlay.bind(this);
     this.judgment = this.judgment.bind(this);
   }
 
   randomPlay() {
-    if (!this.state.isPlayed) {
+    if (!this.props.isQuestion) {
       const n = Math.floor(Math.random() * keyLevels.length);
-      this.state.correct = `${keyLevels[n]}3`;
-      const src = `../src/audio/${this.state.correct}.mp3`;
+      const correctKey = `${keyLevels[n]}3`;
+      const src = `../src/audio/${correctKey}.mp3`;
       const audio = new Audio(src);
       audio.play();
-      this.state.isPlayed = true;
+      this.props.dispatch(askQuestions(correctKey));
     }
   }
 
   judgment(keyName) {
-    if ((keyName === this.state.correct) & this.state.isPlayed) {
-      this.props.dispatch(correctAnswer());
-      this.state.judg = '正解';
-      console.log(this.state.judg);
-      this.state.isPlayed = false;
-    } else {
-      this.state.judg = '不正解';
-      console.log(this.state.judg);
-      this.state.isPlayed = false;
+    if (this.props.isQuestion) {
+      const src = `../src/audio/${keyName}.mp3`;
+      const audio = new Audio(src);
+      audio.play();
+      if (keyName === this.props.correctKey) {
+        this.props.dispatch(correctAnswer());
+      } else {
+        this.props.dispatch(wrongAnswer());
+      }
     }
   }
 
@@ -67,7 +62,8 @@ export class Absolute extends React.Component {
         >
           もんだい
         </button>
-        <span>{`正答数-> ${this.props.correctAnswer}`}</span>
+        <span className="texts">{`判定 -> ${this.props.judgment}`}</span>
+        <span className="texts">{`正答数 -> ${this.props.correctAnswer}`}</span>
         <Keyboad judgment={this.judgment} />
       </div>
     );

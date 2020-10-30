@@ -30,7 +30,6 @@ export function Keyboad(props) {
         className="white"
         key={keyName}
         onClick={() => {
-          PlayPiano(audio);
           props.judgment(keyName);
         }}
       />
@@ -55,7 +54,6 @@ export function Keyboad(props) {
         className="black"
         key={keyName}
         onClick={() => {
-          PlayPiano(audio);
           props.judgment(keyName);
         }}
       />
@@ -97,7 +95,7 @@ export function FreeKeyboad() {
           height={WHITE_KEY_HEIGHT}
           className="white"
           onMouseDown={() => {
-            PlayPiano(audio);
+            playPiano(audio);
           }}
           key={keyName}
         />
@@ -117,7 +115,7 @@ export function FreeKeyboad() {
         height={WHITE_KEY_HEIGHT}
         className="white"
         onMouseDown={() => {
-          PlayPiano(audio);
+          playPiano(audio);
         }}
         key="c7"
       />
@@ -142,7 +140,7 @@ export function FreeKeyboad() {
           height={BLACK_KEY_HEIGHT}
           className="black"
           onMouseDown={() => {
-            PlayPiano(audio);
+            playPiano(audio);
           }}
           key={keyName}
         />
@@ -183,7 +181,7 @@ export function FreeKeyboad() {
   );
 }
 
-const PlayPiano = (audio) => {
+const playPiano = (audio) => {
   if (!audio.seeking || audio.currentTime !== 0) {
     audio.currentTime = 0;
   }
