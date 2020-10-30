@@ -19,8 +19,6 @@ export function Keyboad(props) {
   let whiteX = 0;
   for (let i = 0; i < WHITE_KEY_NUM; i++) {
     const keyName = `${WHITE_KEY_LEVEL[i]}3`;
-    const src = `../src/audio/${keyName}.mp3`;
-    const audio = new Audio(src);
     const whiteKey = (
       <rect
         x={whiteX}
@@ -43,8 +41,6 @@ export function Keyboad(props) {
   blackX = blackX + BLACK_KEY_WIDTH;
   for (let i = 0; i < BLUCK_KEY_NUM; i++) {
     const keyName = `${BLACK_KEY_LEVEL[i]}3`;
-    const src = `../src/audio/${keyName}.mp3`;
-    const audio = new Audio(src);
     const blackKey = (
       <rect
         x={blackX}
