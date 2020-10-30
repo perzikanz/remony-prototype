@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default function Easy() {
+import './easy.css';
+
+export function Easy() {
   return (
     <div>
       <h2>Easy</h2>

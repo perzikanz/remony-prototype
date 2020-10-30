@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default function Home() {
+import './home.css';
+
+export function Home() {
   return (
     <div>
       <h2>Home</h2>

@@ -1,16 +1,12 @@
 import React from 'react';
-import {
-  Route,
-  Switch,
-  NavLink,
-  useRouteMatch,
-} from 'react-router-dom';
+import { Route, Switch, NavLink, useRouteMatch } from 'react-router-dom';
 
-import Basic from './Basic';
-import Easy from './Easy';
-import Chord from './Chord';
+import Basic from '../Basic';
+import Easy from '../Easy';
+import Chord from '../Chord';
+import './relative.css';
 
-export default function Relative() {
+export function Relative() {
   let match = useRouteMatch();
   return (
     <div>
@@ -22,10 +18,7 @@ export default function Relative() {
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to={`${match.url}/basic/easy`}
-            className="naviItem"
-          >
+          <NavLink to={`${match.url}/basic/easy`} className="naviItem">
             単音(easy)
           </NavLink>
         </li>

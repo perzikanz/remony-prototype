@@ -1,17 +1,13 @@
 import React from 'react';
-import {
-  Route,
-  Switch,
-  NavLink,
-  useRouteMatch,
-} from 'react-router-dom';
+import { Route, Switch, NavLink, useRouteMatch } from 'react-router-dom';
 
-import Absolute from './Absolute';
-import Relative from './Relative';
+import Absolute from '../Absolute';
+import Relative from '../Relative';
 
-import './navigation.css';
+import '../navigation.css';
+import './question.css';
 
-export default function Question() {
+export function Question() {
   let match = useRouteMatch();
   return (
     <div>

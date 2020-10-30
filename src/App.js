@@ -1,12 +1,13 @@
 import React from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import { routes } from './routes';
 import './pages/navigation.css';
 
 export default () => {
   return (
-    <>
+    <BrowserRouter>
       <ul className="naviList">
         <li>
           <NavLink to="/" className="naviItem">
@@ -29,6 +30,6 @@ export default () => {
           return <Route key={i} {...route} />;
         })}
       </Switch>
-    </>
+    </BrowserRouter>
   );
 };

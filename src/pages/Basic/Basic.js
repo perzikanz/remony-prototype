@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default function Basic() {
+import './basic.css';
+
+export function Basic() {
   return (
     <div>
       <h2>Basic</h2>

@@ -1,10 +1,5 @@
 import React from 'react';
-import './Keyboad.css';
-
-/* メモ
-白鍵：80*405, 7こ 
-黒鍵：50*225, 5こ, (40,100,35,35,50)
-*/
+import './keyboad.css';
 
 const OCTAVE_NUM = 7;
 const WHITE_KEY_NUM = 7;
@@ -19,10 +14,11 @@ const BLACK_KEY_HEIGHT = 225;
 const BLACK_KEY_SPASE = [40, 100, 35, 35, 50];
 const BLACK_KEY_LEVEL = ['cs', 'ds', 'fs', 'gs', 'as'];
 
-export function Keyboad() {
+export function Keyboad(props) {
   let whiteKeys = [];
   let whiteX = 0;
   for (let i = 0; i < WHITE_KEY_NUM; i++) {
+    const keyName = `${WHITE_KEY_LEVEL[i]}3`;
     const whiteKey = (
       <rect
         x={whiteX}
@@ -30,7 +26,10 @@ export function Keyboad() {
         width={WHITE_KEY_WIDTH}
         height={WHITE_KEY_HEIGHT}
         className="white"
-        id={`${WHITE_KEY_LEVEL[i]}3`}
+        key={keyName}
+        onClick={() => {
+          props.judgment(keyName);
+        }}
       />
     );
     whiteKeys.push(whiteKey);
@@ -41,6 +40,7 @@ export function Keyboad() {
   let blackX = 0;
   blackX = blackX + BLACK_KEY_WIDTH;
   for (let i = 0; i < BLUCK_KEY_NUM; i++) {
+    const keyName = `${BLACK_KEY_LEVEL[i]}3`;
     const blackKey = (
       <rect
         x={blackX}
@@ -48,7 +48,10 @@ export function Keyboad() {
         width={BLACK_KEY_WIDTH}
         height={BLACK_KEY_HEIGHT}
         className="black"
-        id={`${BLACK_KEY_LEVEL[i]}3`}
+        key={keyName}
+        onClick={() => {
+          props.judgment(keyName);
+        }}
       />
     );
     blackKeys.push(blackKey);
@@ -77,7 +80,8 @@ export function FreeKeyboad() {
   for (let i = 0; i < OCTAVE_NUM; i++) {
     let octave = i;
     for (let i = 0; i < WHITE_KEY_NUM; i++) {
-      const src = `./src/audio/${WHITE_KEY_LEVEL[i]}${octave}.mp3`;
+      const keyName = `${WHITE_KEY_LEVEL[i]}${octave}`;
+      const src = `../src/audio/${keyName}.mp3`;
       const audio = new Audio(src);
       const whiteKey = (
         <rect
@@ -87,29 +91,33 @@ export function FreeKeyboad() {
           height={WHITE_KEY_HEIGHT}
           className="white"
           onMouseDown={() => {
-            PlayPiano(audio);
+            playPiano(audio);
           }}
+          key={keyName}
         />
       );
       whiteKeys.push(whiteKey);
       whiteX = whiteX + 80;
     }
   }
-  const src = `./src/audio/c7.mp3`;
-  const audio = new Audio(src);
-  whiteKeys.push(
-    <rect
-      x={whiteX}
-      y={0}
-      width={WHITE_KEY_WIDTH}
-      height={WHITE_KEY_HEIGHT}
-      className="white"
-      onMouseDown={() => {
-        PlayPiano(audio);
-      }}
-    />
-  );
-  whiteX = whiteX + 80;
+  {
+    const src = `../src/audio/c7.mp3`;
+    const audio = new Audio(src);
+    whiteKeys.push(
+      <rect
+        x={whiteX}
+        y={0}
+        width={WHITE_KEY_WIDTH}
+        height={WHITE_KEY_HEIGHT}
+        className="white"
+        onMouseDown={() => {
+          playPiano(audio);
+        }}
+        key="c7"
+      />
+    );
+    whiteX = whiteX + 80;
+  }
 
   let blackKeys = [];
   let blackX = 0;
@@ -117,7 +125,8 @@ export function FreeKeyboad() {
     let octave = i;
     blackX = blackX + BLACK_KEY_WIDTH;
     for (let i = 0; i < BLUCK_KEY_NUM; i++) {
-      const src = `./src/audio/${BLACK_KEY_LEVEL[i]}${octave}.mp3`;
+      const keyName = `${BLACK_KEY_LEVEL[i]}${octave}`;
+      const src = `../src/audio/${keyName}.mp3`;
       const audio = new Audio(src);
       const blackKey = (
         <rect
@@ -127,8 +136,9 @@ export function FreeKeyboad() {
           height={BLACK_KEY_HEIGHT}
           className="black"
           onMouseDown={() => {
-            PlayPiano(audio);
+            playPiano(audio);
           }}
+          key={keyName}
         />
       );
       blackKeys.push(blackKey);
@@ -141,7 +151,7 @@ export function FreeKeyboad() {
   const TEXT_Y = 380;
   for (let i = 0; i <= OCTAVE_NUM; i++) {
     const keyText = (
-      <text x={textX} y={TEXT_Y} className="text">
+      <text x={textX} y={TEXT_Y} className="text" key={`Ct${i}`}>
         C{i}
       </text>
     );
@@ -167,7 +177,7 @@ export function FreeKeyboad() {
   );
 }
 
-const PlayPiano = (audio) => {
+const playPiano = (audio) => {
   if (!audio.seeking || audio.currentTime !== 0) {
     audio.currentTime = 0;
   }
