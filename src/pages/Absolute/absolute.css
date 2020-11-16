@@ -15,5 +15,15 @@
 .texts {
   display: inline-block;
   margin: 10px;
-  width: 200px;
+  width: 100px;
+}
+
+.oneMore {
+  height: 50px;
+  background: pink;
+  font-size: 15px;
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid coral;
+  margin: 30px;
 }
