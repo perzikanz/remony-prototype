@@ -1,18 +1,18 @@
 import React from 'react';
 import './keyboad.css';
 
-const OCTAVE_NUM = 7;
-const WHITE_KEY_NUM = 7;
-const BLUCK_KEY_NUM = 5;
-
-const WHITE_KEY_WIDTH = 80;
-const WHITE_KEY_HEIGHT = 405;
-const WHITE_KEY_LEVEL = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
-
-const BLACK_KEY_WIDTH = 50;
-const BLACK_KEY_HEIGHT = 225;
-const BLACK_KEY_SPASE = [40, 100, 35, 35, 50];
-const BLACK_KEY_LEVEL = ['cs', 'ds', 'fs', 'gs', 'as'];
+import {
+  OCTAVE_NUM,
+  WHITE_KEY_NUM,
+  BLUCK_KEY_NUM,
+  WHITE_KEY_WIDTH,
+  WHITE_KEY_HEIGHT,
+  WHITE_KEY_LEVEL,
+  BLACK_KEY_WIDTH,
+  BLACK_KEY_HEIGHT,
+  BLACK_KEY_SPASE,
+  BLACK_KEY_LEVEL,
+} from './constant';
 
 export function Keyboad(props) {
   let whiteKeys = [];
