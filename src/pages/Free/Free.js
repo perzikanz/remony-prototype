@@ -6,7 +6,7 @@ import './free.css';
 export function Free() {
   return (
     <>
-      <h2>Fee Play♪</h2>
+      <h2>Free Play♪</h2>
       <FreeKeyboad />
     </>
   );
