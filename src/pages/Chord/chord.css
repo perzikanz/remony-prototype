@@ -1,6 +1,6 @@
 .keyboard {
   position: relative;
-  height: 300px;
+  height: 200px;
 }
 
 .white_keys {
@@ -27,9 +27,17 @@
 }
 
 .black_key {
-  background-color: #333;
+  background-color: #888;
+  border: solid 1px #555;
   border-radius: 0 0 4px 4px;
 }
 .black_key:hover {
-  background-color: #666;
+  background-color: #555;
+}
+
+.active_key {
+  background: pink;
+}
+.active_key:hover {
+  background: lightpink;
 }
