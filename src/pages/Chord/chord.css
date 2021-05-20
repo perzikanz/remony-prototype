@@ -1,3 +1,35 @@
-.keyActive {
-  background-color: #3ac8da;
+.keyboard {
+  position: relative;
+  height: 300px;
+}
+
+.white_keys {
+  height: 100%;
+}
+
+.white_key {
+  background-color: #fff;
+  border: solid 1px #555;
+  margin: 0 -1px 0 0;
+  border-radius: 0 0 8px 8px;
+}
+.white_key:hover {
+  background-color: #ddd;
+}
+
+.black_keys {
+  height: 55.55%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.black_key {
+  background-color: #333;
+  border-radius: 0 0 4px 4px;
+}
+.black_key:hover {
+  background-color: #666;
 }
