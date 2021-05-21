@@ -1,5 +1,5 @@
 import React from 'react';
-import './keyboad.css';
+import './Keyboard.css';
 
 import {
   OCTAVE_NUM,
@@ -14,7 +14,7 @@ import {
   BLACK_KEY_LEVEL,
 } from './constant';
 
-export function Keyboad(props) {
+export function Keyboard(props) {
   let whiteKeys = [];
   let whiteX = 0;
   for (let i = 0; i < WHITE_KEY_NUM; i++) {
@@ -25,7 +25,7 @@ export function Keyboad(props) {
         y={0}
         width={WHITE_KEY_WIDTH}
         height={WHITE_KEY_HEIGHT}
-        className="white"
+        className='white'
         key={keyName}
         onClick={() => {
           props.judgment(keyName);
@@ -47,7 +47,7 @@ export function Keyboad(props) {
         y={0}
         width={BLACK_KEY_WIDTH}
         height={BLACK_KEY_HEIGHT}
-        className="black"
+        className='black'
         key={keyName}
         onClick={() => {
           props.judgment(keyName);
@@ -61,7 +61,7 @@ export function Keyboad(props) {
   const svgWidth = whiteX + 2;
   const svgHeight = WHITE_KEY_HEIGHT + 2;
   return (
-    <div className="keyboad">
+    <div className='Keyboard'>
       <svg
         width={svgWidth}
         height={svgHeight}
@@ -74,7 +74,7 @@ export function Keyboad(props) {
   );
 }
 
-export function FreeKeyboad() {
+export function FreeKeyboard() {
   let whiteKeys = [];
   let whiteX = 0;
   for (let i = 0; i < OCTAVE_NUM; i++) {
@@ -89,7 +89,7 @@ export function FreeKeyboad() {
           y={0}
           width={WHITE_KEY_WIDTH}
           height={WHITE_KEY_HEIGHT}
-          className="white"
+          className='white'
           onMouseDown={() => {
             playPiano(audio);
           }}
@@ -109,11 +109,11 @@ export function FreeKeyboad() {
         y={0}
         width={WHITE_KEY_WIDTH}
         height={WHITE_KEY_HEIGHT}
-        className="white"
+        className='white'
         onMouseDown={() => {
           playPiano(audio);
         }}
-        key="c7"
+        key='c7'
       />
     );
     whiteX = whiteX + 80;
@@ -134,7 +134,7 @@ export function FreeKeyboad() {
           y={0}
           width={BLACK_KEY_WIDTH}
           height={BLACK_KEY_HEIGHT}
-          className="black"
+          className='black'
           onMouseDown={() => {
             playPiano(audio);
           }}
@@ -151,7 +151,7 @@ export function FreeKeyboad() {
   const TEXT_Y = 380;
   for (let i = 0; i <= OCTAVE_NUM; i++) {
     const keyText = (
-      <text x={textX} y={TEXT_Y} className="text" key={`Ct${i}`}>
+      <text x={textX} y={TEXT_Y} className='text' key={`Ct${i}`}>
         C{i}
       </text>
     );
@@ -163,7 +163,7 @@ export function FreeKeyboad() {
   const SVG_HEIGHT = WHITE_KEY_HEIGHT + 2;
 
   return (
-    <div className="keyboad">
+    <div className='Keyboard'>
       <svg
         width={SVG_WIDTH}
         height={SVG_HEIGHT}

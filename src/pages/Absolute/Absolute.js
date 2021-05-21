@@ -7,7 +7,7 @@ import {
   endQuestion,
   oneMore,
 } from '../../redux/action';
-import { Keyboad } from '../../piano/Keyboad';
+import { Keyboard } from '../../piano/Keyboard';
 import './absolute.css';
 
 import { KEY_LEVELS } from '../../piano/constant';
@@ -57,7 +57,7 @@ export class Absolute extends React.Component {
             <p>結果は・・・</p>
             <p>{`10問中 ${this.props.correctAnswer}問正解！`}</p>
             <button
-              className="oneMore"
+              className='oneMore'
               onClick={() => {
                 this.props.dispatch(oneMore());
               }}
@@ -68,7 +68,7 @@ export class Absolute extends React.Component {
         ) : (
           <>
             <button
-              className="button"
+              className='button'
               onClick={() => {
                 this.randomPlay();
               }}
@@ -76,15 +76,15 @@ export class Absolute extends React.Component {
               もんだい
             </button>
 
-            <span className="texts">{`${this.props.judgment}`}</span>
+            <span className='texts'>{`${this.props.judgment}`}</span>
             {this.props.isAskingQuestion ? (
-              <span className="texts">正解は ...</span>
+              <span className='texts'>正解は ...</span>
             ) : (
-              <span className="texts">{`正解は ${this.props.correctKey}`}</span>
+              <span className='texts'>{`正解は ${this.props.correctKey}`}</span>
             )}
-            <span className="texts">{`正答数 -> ${this.props.correctAnswer}`}</span>
+            <span className='texts'>{`正答数 -> ${this.props.correctAnswer}`}</span>
 
-            <Keyboad judgment={this.judgment} />
+            <Keyboard judgment={this.judgment} />
           </>
         )}
       </div>
