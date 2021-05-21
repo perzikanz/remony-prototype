@@ -1,3 +1,7 @@
+.keyboards {
+  display: flex;
+}
+
 .keyboard {
   position: sticky;
   top: 0;
