@@ -5,7 +5,7 @@ import {
   END_QUENSTION,
   ONE_MORE_PLAY,
   INITIAL_AUDIO,
-} from './action';
+} from '../action';
 
 const initialState = {
   correctAnswer: 0,
@@ -16,7 +16,7 @@ const initialState = {
   endQuenstion: false,
 };
 
-export default function answer(state = initialState, action) {
+export default function absolute(state = initialState, action) {
   switch (action.type) {
     case INITIAL_AUDIO: {
       const audio = new Audio();

@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
     judgment,
     questionNum,
     endQuenstion,
-  } = state;
+  } = state.absolute;
   return {
     correctAnswer,
     correctKey,
